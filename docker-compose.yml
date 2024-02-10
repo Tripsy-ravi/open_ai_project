@@ -1,0 +1,18 @@
+version: '3'
+services:
+  backend:
+    build: ./backend
+    container_name: open_ai_backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/src:/index
+      - ./backend/node_modules
+  frontend:
+    build: ./frontend_ai
+    container_name: open_ai_frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend_ai/src:/App
+      - ./frontend_ai/node_modules
