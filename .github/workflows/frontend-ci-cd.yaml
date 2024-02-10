@@ -14,16 +14,16 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install frontend dependencies
-        run: cd frontend && npm install
+        run: cd frontend_ai && npm install
 
       - name: Lint frontend code
-        run: cd frontend && npm run lint
+        run: cd frontend_ai && npm run lint
 
       - name: Test frontend code
-        run: cd frontend && npm test
+        run: cd frontend_ai && npm test
 
       - name: Build frontend Docker image
-        run: cd frontend && docker build -t yourusername/frontend:latest .
+        run: cd frontend_ai && docker build -t yourusername/frontend:latest .
         
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
@@ -32,7 +32,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Push frontend Docker image to Docker Hub
-        run: docker push yourusername/frontend:latest
+        run: docker push username/frontend_ai:latest
       
       - name: Deploy to Test Environment
         run: ./deploy.sh

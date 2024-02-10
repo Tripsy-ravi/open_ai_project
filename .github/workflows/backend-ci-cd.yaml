@@ -32,7 +32,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Push backend Docker image to Docker Hub
-        run: docker push yourusername/backend:latest
+        run: docker push username/backend:latest
 
       - name: Deploy to Test Environment
         run: ./deploy.sh
